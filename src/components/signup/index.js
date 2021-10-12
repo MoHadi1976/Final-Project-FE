@@ -3,7 +3,7 @@ import React from 'react'
 const SignUp = ({setUserName, setEmail, setPass, submitHandler}) => {
     return(
         <form onSubmit={submitHandler}>
-                 <a href="/">Homepage</a>
+                 {/* <a href="/">Homepage</a> */}
 
         <h1>Sign Up</h1>
         <input placeholder="UserName" onChange={(e)=> setUserName(e.target.value)} />

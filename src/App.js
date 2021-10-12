@@ -2,6 +2,7 @@ import "./App.css";
 import React, {useState} from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { fetchRequest, login } from "./utils";
+import Navbar from "./components/navbar";
 import Login from "./components/login";
 import SignUp from "./components/signup";
 import Homepage from "./components/homepage";
@@ -39,7 +40,7 @@ const App = ()=> {
     <>
  
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
     <Switch>
       <Route exact path="/">
         <Homepage />

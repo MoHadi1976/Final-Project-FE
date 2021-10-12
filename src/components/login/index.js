@@ -4,7 +4,7 @@ const Login = ({setPass, setEmail, loginHandler}) => {
 
     return(
         <form onSubmit={loginHandler}>
-               <a href="/">Homepage</a>
+               {/* <a href="/">Homepage</a> */}
 
         <h1>Login</h1>
         <input classname="input-fields" placeholder='email' type="email" onChange={(e) => setEmail(e.target.value) } />

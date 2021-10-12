@@ -5,8 +5,8 @@ function Homepage() {
   return (
     <div>
       <br />
-                <a href="/signup">Sign-up</a>
-                <a href="/login">Login</a>
+                {/* <a href="/signup">Sign-up</a>
+                <a href="/login">Login</a> */}
                 <h1>Homepage</h1><br /><br />
     </div>
   );
