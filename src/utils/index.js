@@ -37,3 +37,7 @@ export const login = async (email, pass, setter, history) => {
         console.log(error, "AN ERROR OCCURED in login FRONTEND, check username and password")
     }
 }
+
+
+
+// User.findOneAndUpdate({username: req.body.username}, {$push: {notifications: req.body.publicID}})
