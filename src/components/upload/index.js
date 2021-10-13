@@ -53,7 +53,7 @@ export default function Upload() {
                 headers: { 'Content-Type': 'application/json' },
             });
             const data = await response.json();
-            console.log(data.uploadResponse);
+            console.log(data.uploadResponse.secure_url);
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
