@@ -18,7 +18,7 @@ export const fetchRequest = async (username, email, pass, setter) => {
     }
 }
 
-export const login = async (email, pass, setter, history) => {
+export const login = async (email, pass, setter) => {
     try {
         const response = await fetch("https://postcard-pals.herokuapp.com/user/login", {
             method: 'POST',
@@ -38,6 +38,24 @@ export const login = async (email, pass, setter, history) => {
     }
 }
 
-
+export const sendNotification = async (email, secure_url) => {
+    try {
+        await fetch("https://postcard-pals.herokuapp.com/user/notification", {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email,
+                secure_url,
+            }),
+        });
+        // console.log(response) //output to console for testing purposes 
+        // const data = await response.json();
+        // localStorage.setItem("myToken", data.token)
+        // setter(data.user)
+    } catch (error) {
+        console.log(error, "Postcard wasn't sent")
+    }
+}
 
 // User.findOneAndUpdate({username: req.body.username}, {$push: {notifications: req.body.publicID}})
+

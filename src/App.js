@@ -7,6 +7,7 @@ import Login from "./components/login";
 import SignUp from "./components/signup";
 import Homepage from "./components/homepage";
 import Upload  from './components/upload'
+import { Postcard } from "./components/postcard";
 
 const App = ()=> {
   const history = useHistory();
@@ -40,7 +41,7 @@ const App = ()=> {
     <>
  
     <div className="App">
-      <Navbar />
+      <Navbar user={data}/>
     <Switch>
       <Route exact path="/">
         <Homepage />
@@ -54,6 +55,10 @@ const App = ()=> {
         <Route path="/upload/">
         <Upload/>
         </Route>
+        <Route path="/notifications">
+          <Postcard user={data}/>
+        </Route>
+        
       </Switch>
      </div>
 </>

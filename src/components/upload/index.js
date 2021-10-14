@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Alert from '../alert';
+// import Notification from '../notification';
+import { sendNotification } from "../../utils";
 
 export default function Upload() {
     const history = useHistory();
+    const [email, setEmail] = useState();
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
@@ -15,7 +18,10 @@ export default function Upload() {
         setSelectedFile(file);
         setFileInputState(e.target.value);
     };
-
+    // const handleNotification = (e) => {
+    //     e.preventDefault();
+    //     sendNotification(email, secure_url);
+    // };
     const handleLogout = () => {  
      
         localStorage.clear("myToken");
@@ -54,6 +60,7 @@ export default function Upload() {
             });
             const data = await response.json();
             console.log(data.uploadResponse.secure_url);
+            sendNotification(email, data.uploadResponse.secure_url)
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
@@ -79,10 +86,12 @@ export default function Upload() {
                     value={fileInputState}
                     className="form-input"
                 />
+                <input classname="input-fields" placeholder='email' type="email" onChange={(e) => setEmail(e.target.value) } />
                 <button className="btn" type="submit">
                     Submit
                 </button>
             </form>
+            {/* <Notification setEmail={setEmail} setSecure_url={setSecure_url} handleNotification={handleNotification}/> */}
             {previewSource && (     //NOTE: this asks if there is a preview source then use an image tag todisplay it
                 <img                //The height is sey to 300px so it doesn't swamp the page
                     src={previewSource}
