@@ -41,7 +41,7 @@ const App = ()=> {
     <>
  
     <div className="App">
-      <Navbar user={data}/>
+      <Navbar user={data} setUser={setData}/>
     <Switch>
       <Route exact path="/">
         <Homepage />
@@ -53,7 +53,7 @@ const App = ()=> {
         <Login setPass={setPass} setEmail={setEmail} loginHandler={loginHandler} />
         </Route>
         <Route path="/upload/">
-        <Upload/>
+        <Upload user={data}/>
         </Route>
         <Route path="/notifications">
           <Postcard user={data}/>

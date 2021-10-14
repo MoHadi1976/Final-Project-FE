@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import Alert from '../alert';
 // import Notification from '../notification';
 import { sendNotification } from "../../utils";
 
-export default function Upload() {
+export default function Upload({ user }) {
     const history = useHistory();
     const [email, setEmail] = useState();
     const [fileInputState, setFileInputState] = useState('');
@@ -22,11 +22,7 @@ export default function Upload() {
     //     e.preventDefault();
     //     sendNotification(email, secure_url);
     // };
-    const handleLogout = () => {  
-     
-        localStorage.clear("myToken");
-        history.push("/login");
-    }
+
 
     const previewFile = (file) => {
         const reader = new FileReader(); //FileReader is a buit in js method
@@ -71,7 +67,6 @@ export default function Upload() {
     };
     return (
         <>
-        <input type="button" onClick={handleLogout} value="Logout" />
         <div>
             <h1 className="title">Upload an Image</h1>
             <Alert msg={errMsg} type="danger" />
@@ -99,6 +94,7 @@ export default function Upload() {
                     style={{ height: '300px' }}
                 />
             )}
+            {!user && <Redirect to="/" />}
         </div>
         </>
     );
