@@ -22,7 +22,7 @@ const App = ()=> {
     //call fetch request for creating user
   setData(fetchRequest(userName, email, pass, setData));
     if (userName && email && pass) {
-      history.push('/login')
+      history.push('/upload')
     } else {
       return
     }
