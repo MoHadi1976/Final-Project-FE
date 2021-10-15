@@ -8,6 +8,7 @@ import SignUp from "./components/signup";
 import Homepage from "./components/homepage";
 import Upload  from './components/upload'
 import { Postcard } from "./components/postcard";
+import Background from "./pictures/background.jpg";
 
 const App = ()=> {
   const history = useHistory();
@@ -40,7 +41,11 @@ const App = ()=> {
   return (
     <>
  
-    <div className="App">
+    <div className="App" style={{
+          backgroundImage: 'url('+Background+')',
+          backgroundSize: "cover",
+          height: "100vh",
+        }}>
       <Navbar user={data} setUser={setData}/>
     <Switch>
       <Route exact path="/">

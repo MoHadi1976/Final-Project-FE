@@ -1,11 +1,11 @@
+import "../../App.css";
 import React, { useState } from 'react';
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Alert from '../alert';
 // import Notification from '../notification';
 import { sendNotification } from "../../utils";
 
 export default function Upload({ user }) {
-    const history = useHistory();
     const [email, setEmail] = useState();
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
@@ -66,23 +66,23 @@ export default function Upload({ user }) {
         }
     };
     return (
-        <>
+        <div className="upload">
         <div>
-            <h1 className="title">Upload an Image</h1>
+            <p className="title">Upload an Image</p>
             <Alert msg={errMsg} type="danger" />
             <Alert msg={successMsg} type="success" />
             {/* this next line calls the function that will handle submitting the file */}
-            <form onSubmit={handleSubmitFile} className="form">    
+            <form onSubmit={handleSubmitFile} className="upload-form">    
                 <input
                     id="fileInput"
                     type="file"
                     name="image"
                     onChange={handleFileInputChange}
                     value={fileInputState}
-                    className="form-input"
+                    className="input-fields"
                 />
-                <input classname="input-fields" placeholder='email' type="email" onChange={(e) => setEmail(e.target.value) } />
-                <button className="btn" type="submit">
+                <input className="input-fields" placeholder='email' type="email" onChange={(e) => setEmail(e.target.value) } />
+                <button className="submit-btn" type="submit">
                     Submit
                 </button>
             </form>
@@ -96,6 +96,6 @@ export default function Upload({ user }) {
             )}
             {!user && <Redirect to="/" />}
         </div>
-        </>
+        </div>
     );
 }

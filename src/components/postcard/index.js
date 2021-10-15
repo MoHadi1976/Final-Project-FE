@@ -1,7 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-
-
 
 
 export const Postcard = ({ user }) => {
@@ -10,7 +7,7 @@ export const Postcard = ({ user }) => {
         
         <div>
             {user.notifications && user.notifications.map((photo, index) => {
-                return <img key={index} src={photo} />;
+                return <img className="postcards" key={index} src={photo} style={{ height: '300px' }} />
             })}
         </div>
 
